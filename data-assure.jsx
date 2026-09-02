@@ -9,8 +9,8 @@ import {
 import { BarChart, Bar, XAxis, YAxis, Cell, ResponsiveContainer, Tooltip } from "recharts";
 
 /* ------------------------------------------------------------------ *
- * PayLane Data Assure — supplier data validation & fraud prevention
- * Companion to PayLane Invoice AI. Real routing/IBAN checksums, real
+ * Attavo Verify — supplier data validation & fraud prevention
+ * Companion to Attavo Invoices. Real routing/IBAN checksums, real
  * fuzzy watchlist screening, Claude-powered Procurement Assistant.
  * ------------------------------------------------------------------ */
 
@@ -424,7 +424,7 @@ async function askAssistant(q, rows, cfg) {
     bankVerified: r.bank.valid, nextRevalidation: r.nextRevalidation,
   }));
   const system =
-    "You are the PayLane Procurement Assistant, embedded in a supplier data validation platform that validates supplier identity, tax, and banking data and screens suppliers against sanctions/watchlists. " +
+    "You are the Attavo Procurement Assistant, embedded in a supplier data validation platform that validates supplier identity, tax, and banking data and screens suppliers against sanctions/watchlists. " +
     "Answer procurement and accounts-payable questions using ONLY the supplier dataset provided as JSON. Be concise and specific: name suppliers and cite their status, risk, findings, or watchlist matches. " +
     "Statuses mean: validated = cleared for payment; flagged = needs review; rejected = blocked; sent_back = returned to the supplier for corrections. " +
     "If the answer is not in the data, say so plainly. Never invent suppliers or results. Reply in short plain text, no markdown headings.";
@@ -1540,7 +1540,7 @@ function Integration({ cfg, autoTrigger, setAutoTrigger }) {
         <Edge label="Secure API trigger" icon={Plug} />
 
         <div className="pl-layer" style={{ borderColor: T.brand, boxShadow: `0 0 0 3px ${T.brandBg}` }}>
-          <div className="pl-layer-ttl"><ShieldCheck size={15} color={T.brand} /> PayLane engine</div>
+          <div className="pl-layer-ttl"><ShieldCheck size={15} color={T.brand} /> Attavo engine</div>
           <div style={{ display: "flex", gap: 14, flexWrap: "wrap", alignItems: "center", justifyContent: "space-between" }}>
             <div style={{ flex: 1, minWidth: 220 }}>
               <div style={{ fontSize: 13, color: T.ink2, display: "grid", gap: 6 }}>
@@ -1731,7 +1731,7 @@ export default function App() {
     suppliers: ["Suppliers", `${rows.length} suppliers in the vendor master`],
     screening: ["Screening", "Sanctions and watchlist reviews"],
     assistant: ["Procurement Assistant", "Ask about supplier status, risk, and screening"],
-    integration: ["Integration", "How PayLane connects to Workday and external sources"],
+    integration: ["Integration", "How Attavo connects to Workday and external sources"],
     settings: ["Settings", "Validation rules, watchlists, and enrichment sources"],
     detail: [selected ? selected.legalName : "Supplier", "Supplier validation detail"],
   };
@@ -1745,8 +1745,8 @@ export default function App() {
         <div className="pl-brand">
           <div className="pl-brandmark"><ShieldCheck size={18} /></div>
           <div>
-            <div className="pl-brandname">PayLane</div>
-            <div className="pl-brandsub">Data Assure</div>
+            <div className="pl-brandname">Attavo</div>
+            <div className="pl-brandsub">Verify</div>
           </div>
         </div>
         <nav className="pl-nav">

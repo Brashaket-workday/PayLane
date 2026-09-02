@@ -8,8 +8,8 @@ import {
 import { BarChart, Bar, XAxis, YAxis, Cell, ResponsiveContainer, Tooltip } from "recharts";
 
 /* ------------------------------------------------------------------ *
- * PayLane Invoice AI — touchless invoice processing inside Workday
- * Companion to PayLane Data Assure. Real extraction (Claude), real PO
+ * Attavo Invoices — touchless invoice processing inside Workday
+ * Companion to Attavo Verify. Real extraction (Claude), real PO
  * matching, tax + math validation, duplicate detection, and an
  * Invoice Assistant. Every AI feature has an offline fallback.
  * ------------------------------------------------------------------ */
@@ -371,7 +371,7 @@ async function askAssistant(q, rows, cfg) {
     confidence: Math.round(r.confidence * 100), issues: r.issues.map((f) => `${f.label}: ${f.evidence}`),
   }));
   const system =
-    "You are the PayLane Invoice Assistant, embedded in an invoice automation platform that reads invoices and validates them against master data, purchase orders, and tax rules. " +
+    "You are the Attavo Invoice Assistant, embedded in an invoice automation platform that reads invoices and validates them against master data, purchase orders, and tax rules. " +
     "Answer accounts-payable questions using ONLY the invoice dataset provided as JSON. Be concise and specific: name vendors and invoice numbers and cite status, totals, PO matches, or findings. " +
     "Statuses mean: posted = cleared straight through; review = needs a person; hold = blocked pending something; rejected = not payable. " +
     "If the answer is not in the data, say so plainly. Never invent invoices. Reply in short plain text, no markdown headings.";
@@ -1449,7 +1449,7 @@ function Integration({ cfg, autoPost, setAutoPost }) {
         <Edge label="Secure API trigger" icon={Plug} />
 
         <div className="pl-layer" style={{ borderColor: T.brand, boxShadow: `0 0 0 3px ${T.brandBg}` }}>
-          <div className="pl-layer-ttl"><ClipboardCheck size={15} color={T.brand} /> PayLane Invoice AI engine</div>
+          <div className="pl-layer-ttl"><ClipboardCheck size={15} color={T.brand} /> Attavo Invoices engine</div>
           <div style={{ display: "flex", gap: 14, flexWrap: "wrap", alignItems: "center", justifyContent: "space-between" }}>
             <div style={{ flex: 1, minWidth: 220 }}>
               <div style={{ fontSize: 13, color: T.ink2, display: "grid", gap: 6 }}>
@@ -1476,7 +1476,7 @@ function Integration({ cfg, autoPost, setAutoPost }) {
         </div>
       </div>
 
-      <div className="pl-note"><Info size={15} style={{ flex: "none", marginTop: 1 }} color={T.info} /><span>Invoice AI runs inside Workday: a single secure trigger fires when an invoice arrives, the engine reads and validates it in real time against Workday master data, purchase orders, and tax authorities, and posts clean invoices automatically.</span></div>
+      <div className="pl-note"><Info size={15} style={{ flex: "none", marginTop: 1 }} color={T.info} /><span>Invoices runs inside Workday: a single secure trigger fires when an invoice arrives, the engine reads and validates it in real time against Workday master data, purchase orders, and tax authorities, and posts clean invoices automatically.</span></div>
 
       <div className="pl-card">
         <div className="pl-card-head"><Zap size={16} color={T.amber} /> Recent processing</div>
@@ -1598,7 +1598,7 @@ export default function App() {
     invoices: ["Invoices", `${rows.length} invoices in the workspace`],
     exceptions: ["Exceptions", "Invoices that need a person"],
     assistant: ["Invoice Assistant", "Ask about invoices, exceptions, and totals"],
-    integration: ["Integration", "How Invoice AI connects to Workday and validation sources"],
+    integration: ["Integration", "How Invoices connects to Workday and validation sources"],
     settings: ["Settings", "Matching tolerances, tax rules, and auto-post"],
     detail: [selected ? selected.vendor : "Invoice", "Invoice detail"],
   };
@@ -1611,7 +1611,7 @@ export default function App() {
       <aside className={`pl-side ${sideOpen ? "open" : ""}`}>
         <div className="pl-brand">
           <div className="pl-brandmark"><FileText size={18} /></div>
-          <div><div className="pl-brandname">PayLane</div><div className="pl-brandsub">Invoice AI</div></div>
+          <div><div className="pl-brandname">Attavo</div><div className="pl-brandsub">Invoices</div></div>
         </div>
         <nav className="pl-nav">
           {NAV.map((n) => (
